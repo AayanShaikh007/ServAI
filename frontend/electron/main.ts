@@ -93,6 +93,21 @@ ipcMain.on('to-python', (_event, data) => {
   }
 })
 
+// Window control handlers
+ipcMain.on('window-minimize', () => {
+  win?.minimize()
+})
+
+ipcMain.on('window-close', () => {
+  win?.close()
+})
+
+ipcMain.on('window-toggle-fullscreen', () => {
+  if (win) {
+    win.setFullScreen(!win.isFullScreen())
+  }
+})
+
 
 function createWindow() {
   win = new BrowserWindow({

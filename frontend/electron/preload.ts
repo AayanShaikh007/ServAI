@@ -32,4 +32,17 @@ contextBridge.exposeInMainWorld('shell', {
   }
 })
 
-console.log('Preload script completed, ipcRenderer and shell exposed to window')
+// Expose window control functions
+contextBridge.exposeInMainWorld('minimize', () => {
+  ipcRenderer.send('window-minimize')
+})
+
+contextBridge.exposeInMainWorld('close', () => {
+  ipcRenderer.send('window-close')
+})
+
+contextBridge.exposeInMainWorld('toggleFullscreen', () => {
+  ipcRenderer.send('window-toggle-fullscreen')
+})
+
+console.log('Preload script completed, ipcRenderer, shell, and window controls exposed to window')

@@ -24,4 +24,13 @@ electron.contextBridge.exposeInMainWorld("shell", {
     return electron.shell.openExternal(url);
   }
 });
-console.log("Preload script completed, ipcRenderer and shell exposed to window");
+electron.contextBridge.exposeInMainWorld("minimize", () => {
+  electron.ipcRenderer.send("window-minimize");
+});
+electron.contextBridge.exposeInMainWorld("close", () => {
+  electron.ipcRenderer.send("window-close");
+});
+electron.contextBridge.exposeInMainWorld("toggleFullscreen", () => {
+  electron.ipcRenderer.send("window-toggle-fullscreen");
+});
+console.log("Preload script completed, ipcRenderer, shell, and window controls exposed to window");

@@ -8,8 +8,14 @@ function App() {
   return (
     <Router>
       <div className="app-layout">
-        {/* Draggable Titlebar */}
-        <div className="titlebar"></div>
+        {/* Draggable Titlebar with macOS controls */}
+        <div className="titlebar">
+          <div className="window-controls">
+            <button className="window-btn close" onClick={() => window.close()} title="Close"></button>
+            <button className="window-btn minimize" onClick={() => window.minimize()} title="Minimize"></button>
+            <button className="window-btn fullscreen" onClick={() => window.toggleFullscreen()} title="Fullscreen"></button>
+          </div>
+        </div>
 
         <Navigation />
 

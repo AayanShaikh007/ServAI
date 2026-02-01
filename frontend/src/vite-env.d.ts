@@ -10,4 +10,7 @@ interface Window {
     shell: {
         openExternal: (url: string) => Promise<void>
     }
+    minimize: () => void
+    close: () => void
+    toggleFullscreen: () => void
 }

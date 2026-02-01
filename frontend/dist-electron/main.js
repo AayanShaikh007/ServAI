@@ -57,6 +57,17 @@ ipcMain.on("to-python", (_event, data) => {
     console.error("Python process not ready");
   }
 });
+ipcMain.on("window-minimize", () => {
+  win == null ? void 0 : win.minimize();
+});
+ipcMain.on("window-close", () => {
+  win == null ? void 0 : win.close();
+});
+ipcMain.on("window-toggle-fullscreen", () => {
+  if (win) {
+    win.setFullScreen(!win.isFullScreen());
+  }
+});
 function createWindow() {
   win = new BrowserWindow({
     width: 1100,
