@@ -1,0 +1,3 @@
+INFO:root:Backend service started
+DEBUG:root:Received: {"type": "ping", "data": "test"}
+INFO:root:Backend service started
