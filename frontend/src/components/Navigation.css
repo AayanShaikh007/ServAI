@@ -1,7 +1,9 @@
 .navigation {
-    width: 200px;
-    background: rgba(15, 15, 25, 0.95);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    width: 220px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -9,6 +11,7 @@
     position: fixed;
     left: 0;
     top: 0;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
 }
 
 .nav-header {
@@ -19,43 +22,62 @@
 
 .nav-header h2 {
     margin: 0;
-    font-size: 1.5em;
-    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    font-size: 1.6em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 15px;
-    border-radius: 8px;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-size: 1em;
+    font-weight: 500;
+    position: relative;
 }
 
 .nav-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateX(4px);
 }
 
 .nav-link.active {
-    background: rgba(0, 242, 254, 0.15);
-    color: #00f2fe;
-    border-left: 3px solid #00f2fe;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.2) 0%, rgba(167, 139, 250, 0.2) 100%);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    box-shadow: 0 4px 16px rgba(96, 165, 250, 0.2);
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg, #60a5fa 0%, #a78bfa 100%);
+    border-radius: 0 4px 4px 0;
 }
 
 .nav-icon {
-    font-size: 1.3em;
+    font-size: 1.4em;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
